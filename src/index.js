@@ -7,7 +7,7 @@ document.body.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  45,
+  50,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -51,3 +51,12 @@ function animate() {
 }
 
 animate();
+
+window.addEventListener("resize", (event) => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("body").style.overflow = "hidden";
+});
